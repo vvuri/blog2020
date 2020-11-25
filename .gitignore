@@ -1,3 +1,9 @@
+goblog/vendor/
+
+client/node_modules/
+client/coverage/
+client/build/
+
 # Binaries for programs and plugins
 *.exe
 *.exe~
@@ -16,8 +22,18 @@ bin
 
 go.sum
 
-client/node_modules/
-node_modules/
+.vscode/
 
-goblog/vendor/
-vendor/
+/.pnp
+.pnp.js
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
