@@ -35,10 +35,12 @@
 
 ## Технологии
 - React - build static
+- TS
 - Rest API - Go
 - PostgreSQL
 - Nginx
 - Swagger
+- Figma под создание интерфейса
 
 ## Реализация
 1. Начать с простого API на GO
@@ -57,6 +59,9 @@
 	Начать пока с простого и двигаться к этому
 	https://www.youtube.com/watch?v=dyvYXidvc8g	
 12. Прикрутить линтер - как часть процсса
+	- Go
+	- JS
+	- TS
 
 IPTables -> 443 + SSH 
 Client -> HTTPS -> NGINX -> Static page React
@@ -117,6 +122,8 @@ GnuWin:
 	запуск тестов через 
 	$ ginkgo ./cmd/goblog/
 
+
+
 14. Прикручиваем линтер https://golangci-lint.run/usage/install/
 	$ curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.32.2
 	$ golangci-lint --version
@@ -162,8 +169,11 @@ GnuWin:
 	$ swag init
 	появился каталог /docs
 
+	$ swag init .../cmd/goblog
+
 19. Доступ к документации swagger
-	 http://localhost:8080/swagger/index.html	
+	 http://localhost:5000/swagger/index.html	
+	 swag init .../cmd/goblog
 
 
 
@@ -390,3 +400,4 @@ github.com/matcornic/hermes/v2
 
 ## Links 
 	project-layout - https://github.com/golang-standards/project-layout
+

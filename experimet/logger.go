@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+	fmt.Println("Run in Docker")
 
 	log2file()
 }
