@@ -7,7 +7,7 @@ import (
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"github.com/vvuri/blog2020/cmd/goblog/docs"
-	//"./docs"
+	//"github.com/vvuri/blog2020/goblog/cmd/goblog/docs"
 )
 
 var db = make(map[string]string)
@@ -28,7 +28,7 @@ func creteSwaggerDoc() {
 	docs.SwaggerInfo.Description = "Goblog RRST API server."
 	docs.SwaggerInfo.Host = "localhost:5000"
 	docs.SwaggerInfo.Version = "1.0"
-	docs.SwaggerInfo.BasePath = "api/v1"
+	docs.SwaggerInfo.BasePath = "/api/v1"
 	docs.SwaggerInfo.Schemes = []string{"http"}
 }
 
@@ -41,7 +41,7 @@ func setupRouter() *gin.Engine {
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	// Добавить обработчик - Ping test
-	r.GET("/ping", GetPing)
+	r.GET("/api/v1/ping", GetPing)
 
 	// Get user value
 	r.GET("/user/:name", GetName)
@@ -61,7 +61,7 @@ func setupRouter() *gin.Engine {
 // @Summary Retrieves user based on given ID
 // @Produce json
 // @Param id path integer true "User ID"
-// @Success 200 {object} models.User
+// @Success 200
 // @Router /user/:name [get]
 // @Security ApiKeyAuth
 func GetName(c *gin.Context) {
@@ -74,6 +74,10 @@ func GetName(c *gin.Context) {
 	}
 }
 
+// GetPing godoc
+// @Summary Ping Pong test
+// @Success 200
+// @Router /ping [get]
 func GetPing(c *gin.Context) {
 	c.String(http.StatusOK, "pong")
 }

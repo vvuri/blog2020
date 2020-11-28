@@ -9,7 +9,29 @@ info:
   termsOfService: http://swagger.io/terms/
   title: Goblog Swagger API
   version: "1.0"
-paths: {}
+paths:
+  /ping:
+    get:
+      responses:
+        "200":
+          description: ""
+      summary: Ping Pong test
+  /user/:name:
+    get:
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+      security:
+      - ApiKeyAuth: []
+      summary: Retrieves user based on given ID
 securityDefinitions:
   ApiKeyAuth:
     in: header

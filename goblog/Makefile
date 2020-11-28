@@ -19,6 +19,10 @@ run:
 	echo "Starting $(PROJECTNAME)"
 	go run cmd/goblog/main.go
 
+.PHONY: docs
+docs:
+	cd cmd; cd goblog; swag init .../cmd/goblog
+
 .PHONY: test
 test:
 	echo "Testing $(PROJECTNAME)"	
