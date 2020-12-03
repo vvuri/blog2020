@@ -1,8 +1,8 @@
-goblog/vendor/
+vendor/
 
-client/node_modules/
-client/coverage/
-client/build/
+web/node_modules/
+web/coverage/
+web/build/
 
 # Binaries for programs and plugins
 *.exe
