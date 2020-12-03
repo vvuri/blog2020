@@ -7,7 +7,6 @@ import (
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"github.com/vvuri/blog2020/cmd/goblog/docs"
-	//"github.com/vvuri/blog2020/goblog/cmd/goblog/docs"
 )
 
 var db = make(map[string]string)

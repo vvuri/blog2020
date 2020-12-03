@@ -34,7 +34,51 @@
 
 #### трехцветный алгоритм сборщика мусора
 
+#### отладка
+    $ go build panicRecover.go
+    $ strace panicRecover.exe 
+        --- Process 15612 created
+        --- Process 15612 loaded C:\Windows\System32\ntdll.dll at 00007fffc6a50000
+        --- Process 15612 loaded C:\Windows\System32\kernel32.dll at 00007fffc5e80000
+        --- Process 15612 loaded C:\Windows\System32\KernelBase.dll at 00007fffc4190000
 
+    For Linux
+    $ dtrace ...
+    $ dtruss ..
 
+#### ENV
+    $ go env
+        set GOARCH=amd64
+        set GOCACHE=C:\Users\Yuri\AppData\Local\go-build
+        set GOENV=C:\Users\Yuri\AppData\Roaming\go\env
+        set GOEXE=.exe
+        set GOHOSTARCH=amd64
+        set GOHOSTOS=windows
+        set GOMODCACHE=C:\Users\Yuri\go\pkg\mod
+        set GOOS=windows
+        set GOPATH=C:\Users\Yuri\go
+        set GOPROXY=https://proxy.golang.org,direct
+        set GOROOT=c:\go
+        set GOSUMDB=sum.golang.org
+        set GOTOOLDIR=c:\go\pkg\tool\windows_amd64
+        set GCCGO=gccgo
+        set AR=ar
+        set CC=gcc
+        set CXX=g++
+        set GOGCCFLAGS=-m64 -mthreads -fno-caret-diagnostics -Qunused-arguments -fmessage-length=0 -fdebug-prefix-map=C:\Users\Yuri\AppData\Local\Temp\go-build747506618=/tmp/go-build -gno-record-gcc-switches
 
+#### ASM
+    $ GOOS=darwin GOARCH=amd64 go tool compile -S goEnv.go
 
+    разбор синтаксического дерева
+    $ go tool compile -W goEnv.go
+
+    WASM
+    $ go build -o main.wasm goEnv.go
+    получаем 2Мб файлик - отлично
+
+    OS	    $GOOS
+    Linux	linux
+    MacOS X	darwin
+    Windows	windows
+    Android	android

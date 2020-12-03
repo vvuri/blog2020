@@ -113,16 +113,14 @@ GnuWin:
 12. Запускаем тесты
 	$ make test
 13. Переделвыаем тесты на https://onsi.github.io/ginkgo/
-	$ go get github.com/onsi/ginkgo/ginkgo
-	$ go get github.com/onsi/gomega/...
-	добавил в тесты сделующие строки
-
-	и запустил 
-	$ go mod vendor
-	запуск тестов через 
-	$ ginkgo ./cmd/goblog/
-
-
+	|$ go get github.com/onsi/ginkgo/ginkgo
+	|$ go get github.com/onsi/gomega/...
+	|добавил в тесты сделующие строки
+	|
+	|и запустил 
+	|$ go mod vendor
+	|запуск тестов через 
+	|$ ginkgo ./cmd/goblog/
 
 14. Прикручиваем линтер https://golangci-lint.run/usage/install/
 	$ curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.32.2
@@ -131,8 +129,6 @@ GnuWin:
 15. Запуск линтера и добавление в make
 	$ golangci-lint run
 	$ make lint	
-15. Прикручиваем логирование
-
 16. Прикручиваем Swagger
 	Берем библиотеку swag https://github.com/swaggo/swag
 	$ go get -u github.com/swaggo/swag/cmd/swag
@@ -168,17 +164,17 @@ GnuWin:
 	$ cd cmd/goblog/
 	$ swag init
 	появился каталог /docs
-
 	$ swag init .../cmd/goblog
 
-19. Доступ к документации swagger
-	 http://localhost:5000/swagger/index.html	
-	 swag init .../cmd/goblog
+19. Сделал геренрацию документации по 
+	$ make docs
+	Странность в том, что каталог находистя по пути blog2020/goblog/cmd/goblog/docs
+	Но подключен как "github.com/vvuri/blog2020/cmd/goblog/docs"
 
+20. Доступ к документации swagger
+	http://localhost:5000/swagger/index.html	
 
-
-
-
+21. Прикручиваем логирование
 
 
 -. React проект запускаем
