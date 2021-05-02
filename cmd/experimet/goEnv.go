@@ -1,8 +1,9 @@
-package main
+package experiment
 
 import (
 	"fmt"
 	"runtime"
+	"testing"
 )
 
 func getSystemParam() {
@@ -13,6 +14,6 @@ func getSystemParam() {
 	fmt.Println("Num Goroutines:", runtime.NumGoroutine())
 }
 
-func main() {
+func TestEnv(t *testing.T) {
 	getSystemParam()
 }

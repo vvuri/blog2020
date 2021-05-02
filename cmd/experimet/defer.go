@@ -1,8 +1,11 @@
-package main
+package experiment
 
-import "fmt"
+import (
+	"fmt"
+	"testing"
+)
 
-func main() {
+func TestDefer(t *testing.T) {
 	for i := 3; i > 0; i-- {
 		defer fmt.Printf("%d ", i)
 	}

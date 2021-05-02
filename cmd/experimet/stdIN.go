@@ -1,12 +1,13 @@
-package main
+package experiment
 
 import (
 	"bufio"
 	"fmt"
 	"os"
+	"testing"
 )
 
-func main() {
+func TestStdIn(t *testing.T) {
 	var f *os.File
 	f = os.Stdin
 	defer f.Close()

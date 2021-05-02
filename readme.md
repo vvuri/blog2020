@@ -15,6 +15,7 @@
 - возможность рассылки в соцсети (телега, twitter)
 - система активного мониторинга и информирования в слак
 - возможно мобильное приложение 
+- площадка для экспериментов, включая ML проекты
 
 ## Этапы
 1. Верстка + отображение одной тематики
@@ -69,27 +70,38 @@ Client -> HTTPS -> NGINX -> Static page React
 
 ## Install
 Golang:
-	$ go version
-	go version go1.15.3 windows/amd64
-	$ go get -u github.com/gin-gonic/gin
+```bash
+> go version
+  # go version go1.15.3 windows/amd64
+> go get -u github.com/gin-gonic/gin
+```
 Linter:
-	https://golangci-lint.run/usage/install/
-	$ curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.32.2
-	$ golangci-lint --version
-	golangci-lint has version 1.32.2 built from 52d26a3 on 2020-11-03T01:15:38Z
-	$ golangci-lint run
+https://golangci-lint.run/usage/install/
+```bash
+> curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.32.2
+> golangci-lint --version
+  # golangci-lint has version 1.32.2 built from 52d26a3 on 2020-11-03T01:15:38Z
+> golangci-lint run
+```
 Test:
-	$ go get github.com/onsi/ginkgo/ginkgo
-	$ go get github.com/onsi/gomega/...	
-	$ go mod vendor
-React:
-	$ npx create-react-app client
+```bash
+> go get github.com/onsi/ginkgo/ginkgo
+> go get github.com/onsi/gomega/...	
+> go mod vendor
+```
+React: 
+```bash
+> npx create-react-app client
+```
 Golang:
-	$ cd goblog
-	$ go run main.go
-	Start on port :5000
+```bash
+> cd goblog
+> go run main.go
+  # Start on port :5000
+```
 Browser:
 	http://localhost:3000
+
 GnuWin:
 	make for Windows
 
@@ -102,44 +114,46 @@ GnuWin:
 5. Тесты в /tests
 6. Берем пример из документации gin вместе с тестом
 7. Запускаем 
-	$ go run ./cmd/goblog/main.go
+	``` go run ./cmd/goblog/main.go```
 8. Работа с модулями 
-	$ go mod init goblog
+	``` go mod init goblog ```
 9. Добавить все зависимости в файл go.mod
-	$ go mod vendor
-10. Делаем Makefile с разделми 
-	make run, test, lint
+   ``` go mod vendor ```  
+10. Делаем Makefile с разделми: make run, test, lint
 11. Ставимь make for Windows и прописываем в path
 12. Запускаем тесты
-	$ make test
-13. Переделвыаем тесты на https://onsi.github.io/ginkgo/
-	|$ go get github.com/onsi/ginkgo/ginkgo
-	|$ go get github.com/onsi/gomega/...
-	|добавил в тесты сделующие строки
-	|
-	|и запустил 
-	|$ go mod vendor
-	|запуск тестов через 
-	|$ ginkgo ./cmd/goblog/
-
+	``` make test ```
+13. Переделвыаем тесты на https://onsi.github.io/ginkgo/ 
+	```
+	go get github.com/onsi/ginkgo/ginkgo
+	go get github.com/onsi/gomega/...
+	добавил в тесты сделующие строки
+	и запустил 
+	go mod vendor
+	запуск тестов через 
+	ginkgo ./cmd/goblog/ 
+ 	```
 14. Прикручиваем линтер https://golangci-lint.run/usage/install/
-	$ curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.32.2
-	$ golangci-lint --version
+	```
+	curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.32.2
+	golangci-lint --version
 		golangci-lint has version 1.32.2 built from 52d26a3 on 2020-11-03T01:15:38Z
+ 	```
 15. Запуск линтера и добавление в make
-	$ golangci-lint run
-	$ make lint	
+	```
+	golangci-lint run
+	make lint
+ 	```
 16. Прикручиваем Swagger
 	Берем библиотеку swag https://github.com/swaggo/swag
-	$ go get -u github.com/swaggo/swag/cmd/swag
+	``` go get -u github.com/swaggo/swag/cmd/swag ```
 17. Для взаимодействия с gin необходимо еще 
-	$ go get -u github.com/swaggo/gin-swagger	
-	$ go get -u github.com/swaggo/files
-
-18.	В main.go
-	добавить в проект два импорта:
-		ginSwagger "github.com/swaggo/gin-swagger"
-		swaggerFiles "github.com/swaggo/files"
+	``` go get -u github.com/swaggo/gin-swagger ```	
+	``` go get -u github.com/swaggo/files ```
+18.	В main.go 
+	- добавить в проект два импорта:
+	- ginSwagger "github.com/swaggo/gin-swagger"
+	- swaggerFiles "github.com/swaggo/files"
 
 	Так же перед фунйией - заголовок:
 		// @title Goblog Swagger API
@@ -158,16 +172,16 @@ GnuWin:
 		// @in header
 		// @name Authorization
 
-	$ go mod vendor
+	``` go mod vendor ```
 	
 18. Формируем структуру
-	$ cd cmd/goblog/
-	$ swag init
+	``` cd cmd/goblog/ ```
+	``` swag init ```
 	появился каталог /docs
-	$ swag init .../cmd/goblog
+	```  swag init .../cmd/goblog ```
 
 19. Сделал геренрацию документации по 
-	$ make docs
+	```  make docs ```
 	Странность в том, что каталог находистя по пути blog2020/goblog/cmd/goblog/docs
 	Но подключен как "github.com/vvuri/blog2020/cmd/goblog/docs"
 
@@ -176,6 +190,21 @@ GnuWin:
 
 21. Прикручиваем логирование
 
+22. Меняем Makefile на Task
+	- https://github.com/go-task/task/blob/master/docs/installation.md
+	- In PowerShell ``` iwr -useb get.scoop.sh | iex ```
+	- ``` scoop bucket add extras ```
+	- ``` scoop install task```  
+	- ```task --version``` Task version: v3.4.2  
+	- Добавить файл Taskfile.yml
+	- 
+
+
+
+- .env -> Secret
+    $ go get github.com/joho/godotenv
+    пакет нужен для использования переменных из .env
+- разделение на файлы... следует в компиляции указывать все файлы + все в пакете main
 
 -. React проект запускаем
 	$ npx create-react-app client

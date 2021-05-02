@@ -1,7 +1,8 @@
-package main
+package experiment
 
 import (
 	"fmt"
+	"testing"
 )
 
 func a() {
@@ -23,7 +24,7 @@ func b() {
 	fmt.Println("End B")
 }
 
-func main() {
+func TestPanic(t *testing.T) {
 	a()
 	fmt.Println("End main")
 }

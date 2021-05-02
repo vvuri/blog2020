@@ -1,8 +1,9 @@
-package main
+package experiment
 
 import (
 	"log"
 	"os"
+	"testing"
 )
 
 var LOGFILE = "logDefer.log"
@@ -25,7 +26,7 @@ func two(aLog *log.Logger) {
 	}
 }
 
-func main() {
+func TestDeferILog(t *testing.T) {
 	f, err := os.OpenFile(LOGFILE, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	defer f.Close()
 	if err != nil {

@@ -1,0 +1,22 @@
+version: '3'
+
+tasks:
+  all:
+    lint
+    build
+    test
+  hello:
+    cmds:
+      - echo 'Hello World from Task!'
+    silent: true
+  test:
+    - echo "Testing $(PROJECTNAME)"
+    - go test ./cmd/goblog/... -v
+    # ginkgo ./cmd/goblog/
+  run:
+    - echo "Starting $(PROJECTNAME)"
+    - go run cmd/goblog/main.go
+  docs:
+    - cd cmd; cd goblog; swag init .../cmd/goblog
+  lint:
+    - golangci-lint run

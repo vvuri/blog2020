@@ -1,11 +1,12 @@
-package main
+package experiment
 
 import (
 	"fmt"
+	"testing"
 	"unsafe"
 )
 
-func main() {
+func TestSafe(t *testing.T) {
 	var i int
 	fmt.Println("Size int:", unsafe.Sizeof(i))
 

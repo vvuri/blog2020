@@ -1,12 +1,13 @@
-package main
+package experiment
 
 import (
 	"fmt"
 	"io"
 	"os"
+	"testing"
 )
 
-func main() {
+func TestInput(t *testing.T) {
 	arguments := os.Args
 	fmt.Println(len(arguments))
 

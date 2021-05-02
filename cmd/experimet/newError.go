@@ -1,8 +1,9 @@
-package main
+package experiment
 
 import (
 	"errors"
 	"log"
+	"testing"
 )
 
 func returnError(a, b int) error {
@@ -13,7 +14,7 @@ func returnError(a, b int) error {
 	}
 }
 
-func main() {
+func TestError(t *testing.T) {
 	// err := returnError(1, 2)
 	// fmt.Println(err)
 

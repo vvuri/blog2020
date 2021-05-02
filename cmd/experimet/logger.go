@@ -1,12 +1,13 @@
-package main
+package experiment
 
 import (
 	"fmt"
 	"log"
 	"os"
+	"testing"
 )
 
-func main() {
+func TestLoger(t *testing.T) {
 	fmt.Println("Run in Docker")
 
 	log2file()

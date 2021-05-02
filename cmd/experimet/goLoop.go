@@ -1,8 +1,11 @@
-package main
+package experiment
 
-import "fmt"
+import (
+	"fmt"
+	"testing"
+)
 
-func main() {
+func TestLoop(t *testing.T) {
 	b := []byte("ABC€")
 	fmt.Println(b)
 

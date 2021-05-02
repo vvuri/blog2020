@@ -1,12 +1,13 @@
-package main
+package experiment
 
 import (
 	"fmt"
 	"os"
 	"strconv"
+	"testing"
 )
 
-func main() {
+func TestArgs(t *testing.T) {
 	if len(os.Args) == 1 {
 		fmt.Println("No float args.")
 		os.Exit(1)

@@ -1,8 +1,9 @@
-package main
+package experiment
 
 import (
 	"fmt"
 	"runtime"
+	"testing"
 )
 
 func printStats(mem runtime.MemStats) {
@@ -14,7 +15,7 @@ func printStats(mem runtime.MemStats) {
 	fmt.Println("-----------------------")
 }
 
-func main() {
+func TestGarbage(t *testing.T) {
 	var mem runtime.MemStats
 	printStats(mem)
 
