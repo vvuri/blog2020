@@ -17,6 +17,9 @@ tasks:
     - echo "Starting $(PROJECTNAME)"
     - go run cmd/goblog/main.go
   docs:
-    - cd cmd; cd goblog; swag init .../cmd/goblog
+    cmds:
+      - cd cmd
+      - cd goblog
+      - swag init .../cmd/goblog
   lint:
     - golangci-lint run

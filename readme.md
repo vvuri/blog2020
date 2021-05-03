@@ -197,7 +197,7 @@ GnuWin:
 	- ``` scoop install task```  
 	- ```task --version``` Task version: v3.4.2  
 	- Добавить файл Taskfile.yml
-	- 
+	- https://github.com/go-task/task/blob/master/docs/usage.md
 
 
 
@@ -282,6 +282,7 @@ GnuWin:
 		tag
 
 =====================================================================================================
+```
 	^admin/
 	^$
 	^documentation$
@@ -320,7 +321,7 @@ GnuWin:
 	^api/ ^starships/\.(?P<format>[a-z0-9]+)$ [name='starship-list']
 	^api/ ^starships/(?P<pk>[^/.]+)/$ [name='starship-detail']
 	^api/ ^starships/(?P<pk>[^/.]+)/\.(?P<format>[a-z0-9]+)$ [name='starship-detail']
-
+```
 ### ToDo List
 
 - базовые запросы
