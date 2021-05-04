@@ -2,7 +2,7 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 CREATE TABLE base_table (
     create_at TIMESTAMP NOT NULL,
-    update_at TIMESTAMP NOT NULL,
+    update_at TIMESTAMP NOT NULL
 );
 
 CREATE TABLE user_account (
@@ -22,10 +22,10 @@ CREATE TABLE items (
 
 CREATE TABLE purchase (
     id    uuid PRIMARY KEY DEFAULT uuid_generate_v1(),
-    buyer_id uuint,
-    item_id uint,
+    buyer_id uuid,
+    item_id uuid,
     price_in_cents INTEGER,
     title VARCHAR(255) UNIQUE NOT NULL,
     FOREIGN KEY (buyer_id) REFERENCES user_account (id),
-    FOREIGN KEY (item_id) REFERENCES item (id)
+    FOREIGN KEY (item_id) REFERENCES items (id)
 ) INHERITS (base_table);

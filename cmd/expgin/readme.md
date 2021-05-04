@@ -1,9 +1,14 @@
 ## Small REST API server
 
-#### PostgreSQL
-- docker pull postgres
-- docker run --name gopostgres -e POSTGRES_PASSWORD=rowssap -p 5432:5432 -d postgres
-- docker exec -it gopostgres psql -U postgres
+### PostgreSQL
+- Скачать образ базы данных:  
+  ``` docker pull postgres```
+- Запуск с созданием БД gopostgres:   
+  ``` docker run --name gopostgres -e POSTGRES_PASSWORD=rowssap -p 5432:5432 -d postgres```
+- Запустить утилиту psql:   
+  ``` docker exec -it gopostgres psql -U postgres ```
+- Если необходимо применить schema.sql:   
+  ``` cat ./database/schema.sql | docker exec -i gopostgres psql -U postgres -a ```
 
 #### psql
 - psql -> pgAdmin -> create DB "offersapp"
@@ -16,6 +21,6 @@
 #### Request Postman
 - Post to localhost:3000/users/register  -> { "user_id": "someid" }
 
-#### Run
+### Run
 - docker start gopostgres 
 - run test in second_test.go
