@@ -9,16 +9,6 @@ import (
 	"testing"
 )
 
-// docker pull postgres
-// docker run --name gopostgres -e POSTGRES_PASSWORD=rowssap -p 5432:5432 -d postgres
-// docker exec -it gopostgres psql -U postgres
-
-// psql -> pgAdmin -> create DB "offersapp"
-// $ psql offersapp < database/schema.sql
-
-// Post to localhost:3000/users/register  -> { "user_id": "someid" }
-
-
 func runserver() {
 	conn, err := connectDB()
 	if err!=nil {
