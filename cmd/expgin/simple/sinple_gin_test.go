@@ -1,4 +1,4 @@
-package expgin
+package simple
 
 import (
 	"github.com/gin-gonic/gin"

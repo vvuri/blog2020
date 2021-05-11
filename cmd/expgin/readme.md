@@ -23,4 +23,4 @@
 
 ### Run
 - docker start gopostgres 
-- run test in second_test.go
+- run test in server_test.go

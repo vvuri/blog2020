@@ -18,6 +18,7 @@ func runserver() {
 	log.Println(conn)
 
 	router := gin.Default()
+	router.Use(dbMiddleware(*conn))
 
 	userGroup := router.Group("users")
 	{
@@ -36,8 +37,14 @@ func connectDB() (c *pgx.Conn, err error) {
 	}
 
 	_ = conn.Ping(context.Background())
-
 	return conn, err
+}
+
+func dbMiddleware(con pgx.Conn) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		c.Set("db", con)
+		c.Next()
+	}
 }
 
 func TestSecondRun(t *testing.T) {

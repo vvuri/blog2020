@@ -1,4 +1,4 @@
-package expgin
+package simple
 
 import (
 	"github.com/gin-gonic/gin"
@@ -7,7 +7,7 @@ import (
 )
 
 const PORT = ":10001"
-var test = baloo.New("http://127.0.0.1"+PORT)
+var test = baloo.New("http://127.0.0.1"+ PORT)
 
 func addRoute() {
 	// Creates a gin router with default middleware:

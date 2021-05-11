@@ -12,6 +12,7 @@ require (
 	github.com/go-openapi/spec v0.19.14 // indirect
 	github.com/go-openapi/swag v0.19.12 // indirect
 	github.com/go-playground/validator/v10 v10.5.0 // indirect
+	github.com/gofrs/uuid v4.0.0+incompatible
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/jackc/pgx v3.6.2+incompatible // indirect
 	github.com/jackc/pgx/v4 v4.11.0
